@@ -1,0 +1,50 @@
+services:
+  apache:
+    container_name: apache_php
+    build: ./php
+    restart: always
+
+    ports:
+      - "8080:80"
+
+    volumes:
+      - ./www:/var/www/html
+      - ./apache/conf/apache2.conf:/etc/apache2/apache2.conf
+      - ./php-config/php.ini:/usr/local/etc/php/php.ini
+      - ./php-config/20-xdebug.ini:/usr/local/etc/php/conf.d/20-xdebug.ini
+
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  mariadb:
+    container_name: mariadb
+    build: ./mariadb
+    restart: always
+
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: testdb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: userpass
+
+    ports:
+      - "3316:3306"
+
+    volumes:
+      - mariadb_data:/var/lib/mysql
+
+  phpmyadmin:
+    container_name: phpmyadmin
+    build: ./phpmyadmin
+    restart: always
+
+    environment:
+      PMA_HOST: mariadb
+      PMA_USER: root
+      PMA_PASSWORD: root
+
+    ports:
+      - "8081:80"
+
+volumes:
+  mariadb_data:
