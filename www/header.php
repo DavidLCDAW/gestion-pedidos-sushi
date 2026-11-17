@@ -24,7 +24,9 @@ $title = $title ?? "sushi";
                     <form action="#" method="post" class="d-flex align-items-center justify-content-center gap-2" >
                         <input type="text" name="name" placeholder="Nombre" class="form-control-sm">
                         <input type="text" name="password" placeholder="Contraseña" class="form-control-sm">
-                        <p class="text-danger"><?= $errores ?? "" ?></p>
+                        <?php if (!empty($errores)): ?>
+                            <small class="text-danger"><?= $errores ?></small>
+                        <?php endif; ?>
                         <button type="submit" class="btn btn-outline-success">Entrar</button>
                     </form>
                 <?php else: ?>
