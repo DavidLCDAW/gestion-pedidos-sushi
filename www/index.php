@@ -1,7 +1,6 @@
 <?php
-session_start();
 $title = "Inicio";
-include("header.php");
+include("./header.php");
 ?>
 <main>
     <h2>
