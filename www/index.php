@@ -1,8 +1,8 @@
 <?php
+session_start();
 $title = "Inicio";
-
+include("header.php");
 ?>
-<?php include("./header.php"); ?>
 <main>
     <h2>
         Bienvenido al sushi
