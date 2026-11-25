@@ -1,52 +1,9 @@
-* {
-    box-sizing: border-box;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
     margin: 0;
-    padding: 0 0;
-}
-
-header {
-    padding: 12px 14px;
-    background-color: black;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
-header > div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header a {
-    text-decoration: none;
-    color: white;
-}
-
-input {
-    padding: 10px 15px;
-}
-
-button {
-    padding: 10px 15px;
-}
-
-header h1 {
-    color: white;
-}
-
-nav {
-    background-color: black;
-    display: flex;
-    gap: 25px;
-}
-
-nav a {
-    text-decoration: none;
-    color: white;
-    font-size: 23px;
-}
-
-main {
-    margin: 20px;
 }
