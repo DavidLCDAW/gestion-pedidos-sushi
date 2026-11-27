@@ -19,14 +19,17 @@ function readMenu() {
 function getProductsByCategories($category = null) {
     $products = readMenu();
     $filtered = [];
+    $id = 0;
     foreach ($products as $product) {
         if($category === null || $product[0] === $category){
             $filtered[] = [
+            "id" => $id,
             "categoria" => $product[0],
             "nombre" => $product[1],
             "precio" => $product[2],
             "imagen" => $product[3],
             ];
+            $id++;
         }
     }
     return $filtered;

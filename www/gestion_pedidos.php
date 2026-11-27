@@ -1,6 +1,7 @@
 <?php
 include_once("./auth.php");
 include_once("./menu_controller.php");
+include_once("./pedidos_controller.php");
 require_login();
 
 $title = "Gestión de pedidos";
@@ -12,10 +13,13 @@ foreach($products as $product){
     }
 }
 
+addProducts();
+
 include("./header.php");
 ?>
 
 <main class="container py-4">
+    <form action="#" method="post" class="">
     <?php foreach ($categorias as $categoria): ?>
         <section class="mb-5">
             <!-- Título de la categoría -->
@@ -39,9 +43,7 @@ include("./header.php");
                                         <div>
                                             <p><?= $product["precio"]?>€</p>
                                         </div>
-                                        <form action="#" method="post" class="">
-                                            <button class="btn btn-primary" type="button">Añadir</button>
-                                        </form>
+                                        <input type="number" name="productos_pedidos[]" min=0 value="0" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -51,6 +53,8 @@ include("./header.php");
             </div>
         </section>
     <?php endforeach; ?>
+        <button class="btn btn-primary" type="submit">Añadir</button>
+    </form>
 </main>
 <?php
 
